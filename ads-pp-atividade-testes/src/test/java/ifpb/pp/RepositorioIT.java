@@ -66,12 +66,26 @@ public class RepositorioIT {
         Pessoa p = repo.localizar(1L);
         assertSame(pessoa, p);
     }
+
     @Test
-    public void testRemover(){
+    public void testRemover() {
         Pessoa p = new Pessoa(1L, null, img, cpf, end);
         boolean v = repo.remover(pessoa);
         assertTrue(v);
     }
-    
-    
+
+    @Test
+    public void remover() {
+        boolean result = repo.remover(1L);
+        assertTrue(result);
+    }
+
+//   @Test
+//    public void localizar(Long id){
+//        
+//    }
+//    @Test
+//    public void todos(){
+//        
+//    }
 }

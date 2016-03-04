@@ -50,8 +50,6 @@ public class RepositorioPessoa implements Repositorio<Number, Pessoa> {
             return true;
         } catch (Exception e) {
             return false;
-        } finally {
-//            em.close();
         } 
     }
 
@@ -60,14 +58,14 @@ public class RepositorioPessoa implements Repositorio<Number, Pessoa> {
         em.getTransaction().begin();
         try {
             Pessoa p = em.find(Pessoa.class, key);
-            em.remove(p);
+            if(p != null){
+                em.remove(p);
+            }
             em.getTransaction().commit();
             return true;
         } catch (Exception e) {
             return false;
-        } finally {
-//            em.close();
-        } 
+        }
     }
 
     @Override
