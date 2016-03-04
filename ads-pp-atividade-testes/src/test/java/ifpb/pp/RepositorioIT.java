@@ -12,6 +12,7 @@ import ifpb.pp.pessoa.Pessoa;
 import org.junit.After;
 import org.junit.AfterClass;
 import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -64,10 +65,13 @@ public class RepositorioIT {
         repo.salvar(pessoa);
         Pessoa p = repo.localizar(1L);
         assertSame(pessoa, p);
-
     }
-
-    /**
-     * Test of remover method, of class Repositorio.
-     */
+    @Test
+    public void testRemover(){
+        Pessoa p = new Pessoa(1L, null, img, cpf, end);
+        boolean v = repo.remover(pessoa);
+        assertTrue(v);
+    }
+    
+    
 }

@@ -32,7 +32,6 @@ public class Pessoa implements Serializable {
     }
 
     public Pessoa(String nome, byte[] foto, CPF cpf, Endereco endereco) {
-        this.id = id;
         this.nome = nome;
         this.foto = foto;
         this.cpf = cpf;
@@ -40,7 +39,6 @@ public class Pessoa implements Serializable {
     }
     
     public Pessoa(Long id, String nome, byte[] foto, CPF cpf, Endereco endereco) {
-        this.id = id;
         this.nome = nome;
         this.foto = foto;
         this.cpf = cpf;

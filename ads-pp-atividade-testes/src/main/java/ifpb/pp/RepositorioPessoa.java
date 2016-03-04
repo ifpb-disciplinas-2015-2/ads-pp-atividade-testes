@@ -30,7 +30,6 @@ public class RepositorioPessoa implements Repositorio<Number, Pessoa> {
     public boolean salvar(Pessoa pessoa) {
         em.getTransaction().begin();
         try {
-            pessoa.setId(null);
             em.persist(pessoa);
             em.getTransaction().commit();
             return true;
