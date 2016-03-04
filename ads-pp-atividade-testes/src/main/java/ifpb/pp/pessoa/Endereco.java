@@ -13,18 +13,20 @@ import javax.persistence.Id;
  */
 @Entity
 public class Endereco {
-    @Id @GeneratedValue(strategy = GenerationType.AUTO)
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String rua;
     private String bairro;
 
-   
+    public Endereco() {
+    }
+
     
     public Long getId() {
         return id;
     }
-
-    
 
     public String getRua() {
         return rua;
