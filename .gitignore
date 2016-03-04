@@ -1,2 +1,4 @@
 /target/
 .DS_Store
+/ads-pp-atividade-testes/target/
+/ads-pp-atividade-dbunit/target/

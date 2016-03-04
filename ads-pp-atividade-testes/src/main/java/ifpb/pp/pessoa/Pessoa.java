@@ -1,25 +1,30 @@
 package ifpb.pp.pessoa;
 
 import java.io.Serializable;
-//import javax.persistence.Entity;
-//import javax.persistence.GeneratedValue;
-//import javax.persistence.Id;
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Lob;
+import javax.persistence.OneToOne;
 
 /**
  * @author Ricardo Job
  * @mail ricardo.job@ifpb.edu.br
  * @since 03/03/2016, 15:25:51
  */
-//@Entity
+@Entity
 public class Pessoa implements Serializable {
 
-//    @Id
-//    @GeneratedValue
+    @Id
+    @GeneratedValue
     private long id;
     private String nome;
+    @Lob    
     private byte[] foto;
+    @Embedded
     private CPF cpf; //não entidade
-    
+    @OneToOne
     private Endereco endereco;
 
     public Pessoa() {
@@ -55,5 +60,14 @@ public class Pessoa implements Serializable {
 
     public void setCpf(CPF cpf) {
         this.cpf = cpf;
-    }   
+    }
+
+    public Endereco getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
+    }
+    
 }
