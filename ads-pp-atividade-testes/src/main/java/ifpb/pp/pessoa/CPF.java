@@ -1,5 +1,7 @@
 package ifpb.pp.pessoa;
 
+import java.io.Serializable;
+import java.util.Objects;
 import javax.persistence.Embeddable;
 
 /**
@@ -8,7 +10,7 @@ import javax.persistence.Embeddable;
  * @since 03/03/2016, 15:26:51
  */
 @Embeddable
-public class CPF {
+public class CPF implements Serializable {
 
     private String valor;
 
@@ -17,7 +19,6 @@ public class CPF {
     }
 
     public CPF() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public String getValor() {
@@ -36,4 +37,27 @@ public class CPF {
     public String valor() {
         return valor;
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 71 * hash + Objects.hashCode(this.valor);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final CPF other = (CPF) obj;
+        if (!Objects.equals(this.valor, other.valor)) {
+            return false;
+        }
+        return true;
+    }
+    
 }

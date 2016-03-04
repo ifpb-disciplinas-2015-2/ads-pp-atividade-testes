@@ -19,13 +19,13 @@ public class Pessoa implements Serializable {
 
     @Id
     @GeneratedValue
-    private long id;
+    private Long id;
     private String nome;
     @Lob    
     private byte[] foto;
     @Embedded
-    private CPF cpf; //não entidade
-    @OneToOne(cascade = CascadeType.PERSIST)
+    private CPF cpf;
+    @OneToOne(cascade = CascadeType.ALL)
     private Endereco endereco;
 
     public Pessoa() {
@@ -48,11 +48,11 @@ public class Pessoa implements Serializable {
     }
 
     
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

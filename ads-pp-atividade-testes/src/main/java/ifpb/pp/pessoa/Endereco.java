@@ -24,14 +24,15 @@ public class Endereco {
     }
 
     public Endereco(String rua, String bairro) {
-        this.id = id;
         this.rua = rua;
         this.bairro = bairro;
     }
-    
-    
 
-    
+    public Endereco(Long id, String rua, String bairro) {
+        this.rua = rua;
+        this.bairro = bairro;
+    }
+
     public Long getId() {
         return id;
     }
