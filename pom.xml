@@ -14,4 +14,11 @@
         <module>ads-pp-atividade-testes</module>
         <module>ads-pp-atividade-dbunit</module>
     </modules>
+    <dependencies>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.38</version>
+        </dependency>
+    </dependencies>
 </project>

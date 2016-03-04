@@ -9,7 +9,6 @@ import ifpb.pp.pessoa.Pessoa;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
-import javax.persistence.PersistenceContext;
 
 /**
  *
@@ -24,9 +23,14 @@ public class RepositorioPessoa implements Repositorio<Number, Pessoa> {
         em.getTransaction().begin();
         try {
             em.persist(pessoa);
+//            em.flush();
             em.getTransaction().commit();
+            
             return true;
-        } catch (Exception e) {
+        } catch (IllegalStateException e) {
+            em.getTransaction().rollback();
+            e.printStackTrace();
+            e.getMessage();
             return false;
         } finally {
 //            em.close();

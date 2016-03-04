@@ -1,6 +1,7 @@
 package ifpb.pp.pessoa;
 
 import java.io.Serializable;
+import javax.persistence.CascadeType;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -24,7 +25,7 @@ public class Pessoa implements Serializable {
     private byte[] foto;
     @Embedded
     private CPF cpf; //não entidade
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private Endereco endereco;
 
     public Pessoa() {

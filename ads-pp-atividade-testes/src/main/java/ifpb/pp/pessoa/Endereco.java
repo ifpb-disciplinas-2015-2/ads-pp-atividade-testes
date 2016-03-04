@@ -14,19 +14,17 @@ import javax.persistence.Id;
 @Entity
 public class Endereco {
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private Long id;
     private String rua;
     private String bairro;
 
    
     
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
+    
 
     public String getRua() {
         return rua;

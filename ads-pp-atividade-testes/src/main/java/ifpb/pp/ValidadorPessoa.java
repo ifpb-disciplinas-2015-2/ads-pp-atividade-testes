@@ -32,24 +32,19 @@ public class ValidadorPessoa implements Validador<Pessoa> {
     }
 
     private boolean validaImage(byte[] image) {
-        return false;
+        boolean result = image != null;
+        return result;
+
     }
 
     private boolean validaEndereco(Endereco endereco) {
-        if (endereco != null) {
-            return true;
-        }
-        return false;
+        boolean result = endereco != null;
+        return endereco != null;
     }
 
     @Override
     public boolean validar(Pessoa pessoa) {
-        this.validarCPF(pessoa.getCpf());
-        this.validaImage(pessoa.getFoto());
-        this.validaEndereco(pessoa.getEndereco());
-
-        return false;
-
+        return validarCPF(pessoa.getCpf()) && validaEndereco(pessoa.getEndereco()) && validaImage(pessoa.getFoto());
     }
 
 }

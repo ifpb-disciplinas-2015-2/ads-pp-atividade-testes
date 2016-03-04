@@ -24,7 +24,8 @@ public class ServicePessoa implements Service<Number, Pessoa> {
     @Override
     public boolean salvar(Pessoa pessoa) {
         if(validador.validar(pessoa)){
-            return repositorio.salvar(pessoa);
+            boolean ver = repositorio.salvar(pessoa);
+            return ver;
         }
         return false;
     }
