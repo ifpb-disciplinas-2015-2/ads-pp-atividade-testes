@@ -25,12 +25,29 @@ public class Pessoa implements Serializable {
     private byte[] foto;
     @Embedded
     private CPF cpf; //não entidade
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.PERSIST)
     private Endereco endereco;
 
     public Pessoa() {
     }
 
+    public Pessoa(String nome, byte[] foto, CPF cpf, Endereco endereco) {
+        this.id = id;
+        this.nome = nome;
+        this.foto = foto;
+        this.cpf = cpf;
+        this.endereco = endereco;
+    }
+    
+    public Pessoa(Long id, String nome, byte[] foto, CPF cpf, Endereco endereco) {
+        this.id = id;
+        this.nome = nome;
+        this.foto = foto;
+        this.cpf = cpf;
+        this.endereco = endereco;
+    }
+
+    
     public long getId() {
         return id;
     }

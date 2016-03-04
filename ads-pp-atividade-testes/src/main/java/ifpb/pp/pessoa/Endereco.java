@@ -15,13 +15,21 @@ import javax.persistence.Id;
 public class Endereco {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue
     private Long id;
     private String rua;
     private String bairro;
 
     public Endereco() {
     }
+
+    public Endereco(String rua, String bairro) {
+        this.id = id;
+        this.rua = rua;
+        this.bairro = bairro;
+    }
+    
+    
 
     
     public Long getId() {

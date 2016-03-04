@@ -12,6 +12,14 @@ public class CPF {
 
     private String valor;
 
+    public CPF(String valor) {
+        this.valor = valor;
+    }
+
+    public CPF() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public String getValor() {
         return valor;
     }
@@ -19,14 +27,13 @@ public class CPF {
     public void setValor(String valor) {
         this.valor = valor;
     }
-    
-    
-    
-    public String formatado(){
+
+    public String formatado() {
         // Formatar
         return valor;
     }
-    public String valor(){
+
+    public String valor() {
         return valor;
     }
 }

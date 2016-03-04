@@ -8,6 +8,7 @@ package ifpb.pp;
 import ifpb.pp.pessoa.Pessoa;
 import java.util.List;
 import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 /**
@@ -16,8 +17,15 @@ import javax.persistence.Persistence;
  */
 public class RepositorioPessoa implements Repositorio<Number, Pessoa> {
 
-    private EntityManager em = Persistence.createEntityManagerFactory("default").createEntityManager();
+    private EntityManagerFactory emf;
+    private EntityManager em;
 
+    public RepositorioPessoa() {
+        emf = Persistence.createEntityManagerFactory("default");
+        em = emf.createEntityManager();
+    }
+    
+    
     @Override
     public boolean salvar(Pessoa pessoa) {
         em.getTransaction().begin();

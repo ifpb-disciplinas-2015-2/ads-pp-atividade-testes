@@ -1,12 +1,13 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <dataset>
-    <Pessoa id="3" 
+    <Endereco id="3"
+    		  bairro="Centro"
+    		  rua="Rua Santa Terezinha"/>
+    <Pessoa id="1" 
             valor="876.246.956-76" 
             foto="imageqq" 
             nome="Anderson" 
-            endereco_id="1"/>
-    <Endereco id="1"
-    		  bairro="Centro"
-    		  rua="Rua Santa Terezinha"/>
+            endereco_id="3"/>
+    
 </dataset>
  
