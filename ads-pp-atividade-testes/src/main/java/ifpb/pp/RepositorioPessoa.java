@@ -70,7 +70,8 @@ public class RepositorioPessoa implements Repositorio<Number, Pessoa> {
 
     @Override
     public Pessoa localizar(Number key) {
-        return em.find(Pessoa.class, key);
+        return em.getReference(Pessoa.class, key);  
+//        return em.find(Pessoa.class, key);
     }
 
     @Override

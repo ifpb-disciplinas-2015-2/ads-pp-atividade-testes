@@ -11,6 +11,7 @@ import ifpb.pp.pessoa.Endereco;
 import ifpb.pp.pessoa.Pessoa;
 import org.junit.After;
 import org.junit.AfterClass;
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertTrue;
 import org.junit.Before;
@@ -80,10 +81,11 @@ public class RepositorioIT {
         assertTrue(result);
     }
 
-//   @Test
-//    public void localizar(Long id){
-//        
-//    }
+   @Test
+    public void localizar() {
+        Pessoa p =repo.localizar(1L);
+        assertNotNull(p);
+    }
 //    @Test
 //    public void todos(){
 //        
