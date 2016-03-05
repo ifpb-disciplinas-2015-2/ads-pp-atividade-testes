@@ -8,8 +8,10 @@ package ifpb.pp;
 import ifpb.pp.pessoa.Pessoa;
 import org.junit.After;
 import org.junit.AfterClass;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -51,7 +53,7 @@ public class ServicePessoaIT {
      * Test of salvar method, of class ServicePessoa.
      */
     @Test
-    public void testSalvar() {
+    public void testLocalizar() {
         when(repo.localizar(1L)).thenReturn(null);
         Pessoa p = repo.localizar(1L);
         assertNull(p);
@@ -67,11 +69,17 @@ public class ServicePessoaIT {
     /**
      * Test of localizar method, of class ServicePessoa.
      */
-//    @Test
-//    public void testLocalizar() {
-//        when(repo.remover(null))
-//        
-//    }
+    @Test
+    
+    public void testRemover() {
+        when(repo.remover(18L)).thenReturn(false);
+        when(repo.remover(1L)).thenReturn(true);
+        boolean verificacao = repo.remover(1L);
+        assertTrue(verificacao);
+        verificacao = repo.remover(18L);
+        assertFalse(verificacao);
+        
+    }
     /**
      * Test of todos method, of class ServicePessoa.
      */

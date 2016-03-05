@@ -43,7 +43,7 @@ public class RepositorioPessoa implements Repositorio<Number, Pessoa> {
     }
 
     @Override
-    public boolean remover(Pessoa pessoa) {
+    public boolean remover(Pessoa pessoa) throws IllegalStateException {
         em.getTransaction().begin();
         try {
             em.remove(pessoa);
