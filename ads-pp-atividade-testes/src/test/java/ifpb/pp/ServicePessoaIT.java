@@ -5,6 +5,8 @@
  */
 package ifpb.pp;
 
+import ifpb.pp.pessoa.CPF;
+import ifpb.pp.pessoa.Endereco;
 import ifpb.pp.pessoa.Pessoa;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -27,7 +29,11 @@ public class ServicePessoaIT {
 
     @Mock
     private Repositorio<Number, Pessoa> repo;
-
+    private Endereco end;
+    private CPF cpf;
+    private byte[] img;
+    private Pessoa pessoa;
+    
     public ServicePessoaIT() {
 
     }
@@ -43,6 +49,10 @@ public class ServicePessoaIT {
     @Before
     public void setUp() {
         MockitoAnnotations.initMocks(this);
+        end = new Endereco(20L, "Rua qualquer", "Multirao");
+        img = new byte[50];
+        cpf = new CPF("098.365.385-00");
+        pessoa = new Pessoa(2L, "Jorge", img, cpf, end);
     }
 
     @After
@@ -83,28 +93,32 @@ public class ServicePessoaIT {
     /**
      * Test of todos method, of class ServicePessoa.
      */
-//    @Test
-//    public void testTodos() {
-//        System.out.println("todos");
-//        ServicePessoa instance = new ServicePessoa();
-//        List<Pessoa> expResult = null;
-//        List<Pessoa> result = instance.todos();
-//        assertEquals(expResult, result);
-//        // TODO review the generated test code and remove the default call to fail.
-//        fail("The test case is a prototype.");
-//    }
+    @Test
+    public void testRemoverPorObj() {
+        Pessoa p1 = new Pessoa();
+        when(repo.remover(pessoa)).thenReturn(true);
+        boolean p = repo.remover(p1);
+        assertFalse(p);
+        
+        
+        
+    }
     /**
      * Test of remover method, of class ServicePessoa.
      */
-//    @Test
-//    public void testRemover() {
-//        System.out.println("remover");
-//        Pessoa pessoa = null;
-//        ServicePessoa instance = new ServicePessoa();
-//        boolean expResult = false;
-//        boolean result = instance.remover(pessoa);
-//        assertEquals(expResult, result);
-//        // TODO review the generated test code and remove the default call to fail.
-//        fail("The test case is a prototype.");
-//    }
+    @Test
+    public void testSalvar() {
+        Pessoa p = new Pessoa();
+        when(repo.salvar(pessoa)).thenReturn(true);
+        boolean verifica = repo.salvar(p);
+        assertFalse(verifica);
+        verifica = repo.salvar(pessoa);
+        assertTrue(verifica);
+        
+    }
+    
+    @Test
+    public void testTodos(){
+        when(repo.todos()).thenReturn(null)
+    }
 }
