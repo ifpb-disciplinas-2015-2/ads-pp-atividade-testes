@@ -55,7 +55,7 @@ public class RepositorioIT {
 
     @After
     public void tearDown() {
-        new DBUnitHelper().delete("/tabelas/data.xml");
+//        new DBUnitHelper().delete("/tabelas/data.xml");
     }
 
     /**
@@ -86,8 +86,14 @@ public class RepositorioIT {
         Pessoa p =repo.localizar(1L);
         assertNotNull(p);
     }
+    
 //    @Test
 //    public void todos(){
-//        
+////        int resul = repo.todos().size();
+////        boolean re = repo.todos().isEmpty();
+////        assertSame(resul, 1);
+//        Pessoa p = repo.todos().get(0);
+////        assertTrue(re);
+//        assertNotNull(p);
 //    }
 }

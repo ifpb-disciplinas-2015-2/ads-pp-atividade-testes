@@ -10,6 +10,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 
 /**
  *
@@ -76,7 +77,8 @@ public class RepositorioPessoa implements Repositorio<Number, Pessoa> {
 
     @Override
     public List<Pessoa> todos() {
-        return em.createQuery("Select p from Pessoa p", Pessoa.class).getResultList();
+         Query query = em.createQuery("Select p From Pessoa p");
+         return query.getResultList();
     }
 
 }
