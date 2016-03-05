@@ -8,6 +8,7 @@ package ifpb.pp;
 import ifpb.pp.pessoa.CPF;
 import ifpb.pp.pessoa.Endereco;
 import ifpb.pp.pessoa.Pessoa;
+import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
 import static org.junit.Assert.assertFalse;
@@ -33,7 +34,7 @@ public class ServicePessoaIT {
     private CPF cpf;
     private byte[] img;
     private Pessoa pessoa;
-    
+
     public ServicePessoaIT() {
 
     }
@@ -67,20 +68,20 @@ public class ServicePessoaIT {
         when(repo.localizar(1L)).thenReturn(null);
         Pessoa p = repo.localizar(1L);
         assertNull(p);
-        
+
         when(repo.localizar(2L)).thenReturn(p);
-        
+
         Pessoa p2 = repo.localizar(2L);
-        
+
         assertSame(p2, p);
-        
+
     }
 
     /**
      * Test of localizar method, of class ServicePessoa.
      */
     @Test
-    
+
     public void testRemover() {
         when(repo.remover(18L)).thenReturn(false);
         when(repo.remover(1L)).thenReturn(true);
@@ -88,8 +89,9 @@ public class ServicePessoaIT {
         assertTrue(verificacao);
         verificacao = repo.remover(18L);
         assertFalse(verificacao);
-        
+
     }
+
     /**
      * Test of todos method, of class ServicePessoa.
      */
@@ -99,10 +101,9 @@ public class ServicePessoaIT {
         when(repo.remover(pessoa)).thenReturn(true);
         boolean p = repo.remover(p1);
         assertFalse(p);
-        
-        
-        
+
     }
+
     /**
      * Test of remover method, of class ServicePessoa.
      */
@@ -114,11 +115,15 @@ public class ServicePessoaIT {
         assertFalse(verifica);
         verifica = repo.salvar(pessoa);
         assertTrue(verifica);
-        
+
     }
-    
+
     @Test
-    public void testTodos(){
-        when(repo.todos()).thenReturn(null)
+    public void testTodos() {
+        when(repo.todos()).thenReturn(null);
+
+        List result = repo.todos();
+        assertNull(result);
+
     }
 }
