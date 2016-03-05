@@ -22,7 +22,7 @@ public class ValidadorPessoa implements Validador<Pessoa> {
         this.regex = "([0-9]{2}[\\.]?[0-9]{3}[\\.]?[0-9]{3}[\\/]?[0-9]{4}[-]?[0-9]{2})|([0-9]{3}[\\.]?[0-9]{3}[\\.]?[0-9]{3}[-]?[0-9]{2})";
     }
 
-    private boolean validarCPF(CPF cpf) {
+    public boolean validarCPF(CPF cpf) {
         Pattern pattern = Pattern.compile(regex);
         String pf = cpf.formatado();
         if (pf.matches(regex)) {
