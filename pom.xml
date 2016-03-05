@@ -13,7 +13,6 @@
     <modules>
         <module>ads-pp-atividade-testes</module>
         <module>ads-pp-atividade-dbunit-config</module>
-        <module>ads-pp-config</module>
     </modules>
 <!--    <dependencies>
         <dependency>
